@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,10 +22,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
         
         // Some styles
-        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor.black
         tableView.rowHeight = 50.0
         
         if toDoItems.count > 0 {
@@ -45,6 +45,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         toDoItems.append(ToDoItem(text: "get a hair cut"))
     }
     
+    // MARK: - TableViewCellDelegate
+    func todoItemDeleted(todoItem: ToDoItem) {
+        let index = (toDoItems as NSArray).index(of: todoItem)
+        
+        if index == NSNotFound { return }
+        
+        toDoItems.remove(at: index)
+        
+        tableView.beginUpdates()
+        let indexPathForRow = NSIndexPath(item: index, section: 0)
+        tableView.deleteRows(at: [indexPathForRow as IndexPath], with: .fade)
+        tableView.endUpdates()
+    }
+    
     // MARK: - Table View Data Source
     @nonobjc func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -55,10 +69,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! TableViewCell
         let item = toDoItems[indexPath.row]
         
         cell.textLabel?.text = item.text
+        cell.delegate = self
+        cell.toDoItem = item
         
         return cell;
     }
@@ -69,14 +85,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor.black
-            cell.textLabel?.textColor = UIColor.white
-        }
+        cell.backgroundColor = UIColor.white
+        cell.textLabel?.textColor = UIColor.black
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
+    }
+    
+    @IBAction func addToDoItem(_ sender: AnyObject) {
+        
     }
 }
 

@@ -21,22 +21,28 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5bQ-De-9oU">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CS 810 To Do List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGZ-lk-4ca">
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVd-At-CIL">
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="To Do List" id="kmE-XR-cxz">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dVI-Bv-aLC">
+                                            <connections>
+                                                <action selector="addToDoItem:" destination="BYZ-38-t0r" id="gGf-Ev-P3J"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jGZ-lk-4ca" firstAttribute="leading" secondItem="5bQ-De-9oU" secondAttribute="leading" id="7BM-2Y-5mA"/>
-                            <constraint firstItem="5bQ-De-9oU" firstAttribute="top" secondItem="jGZ-lk-4ca" secondAttribute="bottom" id="G7d-kZ-TJv"/>
+                            <constraint firstItem="IVd-At-CIL" firstAttribute="trailing" secondItem="5bQ-De-9oU" secondAttribute="trailing" id="0O3-cx-uuT"/>
+                            <constraint firstItem="IVd-At-CIL" firstAttribute="leading" secondItem="5bQ-De-9oU" secondAttribute="leading" id="CbR-Um-5Ic"/>
                             <constraint firstAttribute="trailing" secondItem="5bQ-De-9oU" secondAttribute="trailing" id="JJl-fg-ymb"/>
                             <constraint firstItem="5bQ-De-9oU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="59" id="Z89-Vi-fPL"/>
-                            <constraint firstItem="jGZ-lk-4ca" firstAttribute="trailing" secondItem="5bQ-De-9oU" secondAttribute="trailing" id="k0D-DI-TMC"/>
                             <constraint firstItem="5bQ-De-9oU" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="qM8-sg-9S9"/>
+                            <constraint firstItem="IVd-At-CIL" firstAttribute="bottom" secondItem="5bQ-De-9oU" secondAttribute="top" id="qY3-jb-QHT"/>
                             <constraint firstItem="5bQ-De-9oU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xD9-27-eKV"/>
-                            <constraint firstItem="jGZ-lk-4ca" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xpV-JK-e5u"/>
                         </constraints>
                     </view>
                     <connections>

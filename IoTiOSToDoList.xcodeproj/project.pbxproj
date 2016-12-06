@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		620A90B51DF0CBFF001F89B9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620A90B41DF0CBFF001F89B9 /* TableViewCell.swift */; };
 		620D859C1DEDD3DF0026039B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D859B1DEDD3DF0026039B /* AppDelegate.swift */; };
 		620D859E1DEDD3DF0026039B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D859D1DEDD3DF0026039B /* ViewController.swift */; };
 		620D85A11DEDD3DF0026039B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620D859F1DEDD3DF0026039B /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		620A90B41DF0CBFF001F89B9 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		620D85981DEDD3DF0026039B /* IoTiOSToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTiOSToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		620D859B1DEDD3DF0026039B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		620D859D1DEDD3DF0026039B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +52,7 @@
 		620D85BA1DEDD3DF0026039B /* IoTiOSToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoTiOSToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		620D85BE1DEDD3DF0026039B /* IoTiOSToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTiOSToDoListUITests.swift; sourceTree = "<group>"; };
 		620D85C01DEDD3DF0026039B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		620D85CC1DEDD60B0026039B /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		620D85CC1DEDD60B0026039B /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoItem.swift; path = ../ToDoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +87,6 @@
 				620D85B21DEDD3DF0026039B /* IoTiOSToDoListTests */,
 				620D85BD1DEDD3DF0026039B /* IoTiOSToDoListUITests */,
 				620D85991DEDD3DF0026039B /* Products */,
-				620D85CC1DEDD60B0026039B /* ToDoItem.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,8 +103,10 @@
 		620D859A1DEDD3DF0026039B /* IoTiOSToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				620D85CC1DEDD60B0026039B /* ToDoItem.swift */,
 				620D859B1DEDD3DF0026039B /* AppDelegate.swift */,
 				620D859D1DEDD3DF0026039B /* ViewController.swift */,
+				620A90B41DF0CBFF001F89B9 /* TableViewCell.swift */,
 				620D859F1DEDD3DF0026039B /* Main.storyboard */,
 				620D85A51DEDD3DF0026039B /* Assets.xcassets */,
 				620D85A71DEDD3DF0026039B /* LaunchScreen.storyboard */,
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				620A90B51DF0CBFF001F89B9 /* TableViewCell.swift in Sources */,
 				620D859E1DEDD3DF0026039B /* ViewController.swift in Sources */,
 				620D859C1DEDD3DF0026039B /* AppDelegate.swift in Sources */,
 				620D85CD1DEDD60B0026039B /* ToDoItem.swift in Sources */,
@@ -522,6 +526,7 @@
 				620D85C51DEDD3DF0026039B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		620D85C61DEDD3DF0026039B /* Build configuration list for PBXNativeTarget "IoTiOSToDoListTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +535,7 @@
 				620D85C81DEDD3DF0026039B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		620D85C91DEDD3DF0026039B /* Build configuration list for PBXNativeTarget "IoTiOSToDoListUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +544,7 @@
 				620D85CB1DEDD3DF0026039B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
