@@ -15,11 +15,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var toDoItems = [CKRecord]()
     
+    // Show a loading indicator.
+    private let loading = UIAlertView(title: "", message: "Loading To Do Items...", delegate: nil, cancelButtonTitle: nil)
+    
     // MARK: - View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        loading.show()
         
         fetchToDoItems()
         
@@ -56,6 +61,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 print(self.toDoItems)
                 
+                self.loading.message = "Finished!"
+                self.loading.dismiss(withClickedButtonIndex: -1, animated: true)
+                
                 OperationQueue.main.addOperation({ 
                     self.tableView.reloadData()
                 })
@@ -91,6 +99,53 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
+    
+    // MARK: - Save To Do Item
+    func saveToDoItem(toDoItem: CKRecord) {
+        let container = CKContainer.default()
+        let db = container.publicCloudDatabase
+        
+        db.save(toDoItem) { (savedToDoItem, error) in
+            if (error != nil) {
+                print(error)
+            } else {
+                print(savedToDoItem)
+            }
+        }
+    }
+    
+    // MARK: - Add To Do Item
+    func addToDoItem() {
+        // Create the alert controller.
+        let alert = UIAlertController(title: "Add To Do Item", message: "", preferredStyle: .alert)
+        
+        // Add the text field.
+        alert.addTextField { (textField) in }
+        
+        // Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            print("Text field: \(textField?.text)")
+            
+            let toDoItemString = textField?.text
+            
+            let newToDoRecord = CKRecord(recordType: "ToDoItem")
+            newToDoRecord.setValue(toDoItemString, forKey: "string")
+            newToDoRecord.setValue("false", forKey: "completed")
+            
+            OperationQueue.main.addOperation {
+                // Add the new record to our tableview.
+                self.toDoItems.insert(newToDoRecord, at: 0)
+                self.tableView.reloadData()
+            }
+            
+            self.saveToDoItem(toDoItem: newToDoRecord)
+            }))
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+
     
     // MARK: - TableViewCellDelegate - Complete Item
     func todoItemCompleted(todoItem: CKRecord) {
@@ -143,49 +198,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         placeHolderCell.removeFromSuperview()
     }
     
-    // MARK: - Add To Do Item
-    func addToDoItem() {
-        // Create the alert controller.
-        let alert = UIAlertController(title: "Add To Do Item", message: "", preferredStyle: .alert)
-        
-        // Add the text field.
-        alert.addTextField { (textField) in }
-        
-        // Grab the value from the text field, and print it when the user clicks OK.
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            print("Text field: \(textField?.text)")
-            
-            let toDoItemString = textField?.text
-            
-            let newToDoRecord = CKRecord(recordType: "ToDoItem")
-            newToDoRecord.setValue(toDoItemString, forKey: "string")
-            newToDoRecord.setValue("false", forKey: "completed")
-            
-            // Add the new record to our tableview.
-            self.toDoItems.insert(newToDoRecord, at: 0)
-            self.tableView.reloadData()
-            
-            self.saveToDoItem(toDoItem: newToDoRecord)
-        }))
-        
-        // 4. Present the alert.
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    // MARK: - Save To Do Item
-    func saveToDoItem(toDoItem: CKRecord) {
-        let container = CKContainer.default()
-        let db = container.publicCloudDatabase
-        
-        db.save(toDoItem) { (savedToDoItem, error) in
-            if (error != nil) {
-                print(error)
-            } else {
-                print(savedToDoItem)
-            }
-        }
-    }
     
     // MARK: - Table View Data Source
     @nonobjc func numberOfSectionsInTableView(tableView: UITableView) -> Int {
