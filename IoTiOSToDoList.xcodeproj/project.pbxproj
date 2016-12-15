@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22F99A121E02F46300DE12D7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F99A111E02F46300DE12D7 /* CloudKit.framework */; };
 		620A90B51DF0CBFF001F89B9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620A90B41DF0CBFF001F89B9 /* TableViewCell.swift */; };
 		620D859C1DEDD3DF0026039B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D859B1DEDD3DF0026039B /* AppDelegate.swift */; };
 		620D859E1DEDD3DF0026039B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D859D1DEDD3DF0026039B /* ViewController.swift */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22F99A0F1E02F45000DE12D7 /* IoTiOSToDoList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IoTiOSToDoList.entitlements; sourceTree = "<group>"; };
+		22F99A111E02F46300DE12D7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		620A90B41DF0CBFF001F89B9 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		620D85981DEDD3DF0026039B /* IoTiOSToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTiOSToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		620D859B1DEDD3DF0026039B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F99A121E02F46300DE12D7 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22F99A101E02F46300DE12D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22F99A111E02F46300DE12D7 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		620D858F1DEDD3DF0026039B = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +99,7 @@
 				620D85B21DEDD3DF0026039B /* IoTiOSToDoListTests */,
 				620D85BD1DEDD3DF0026039B /* IoTiOSToDoListUITests */,
 				620D85991DEDD3DF0026039B /* Products */,
+				22F99A101E02F46300DE12D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +116,7 @@
 		620D859A1DEDD3DF0026039B /* IoTiOSToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				22F99A0F1E02F45000DE12D7 /* IoTiOSToDoList.entitlements */,
 				620D85CC1DEDD60B0026039B /* ToDoItem.swift */,
 				620D859B1DEDD3DF0026039B /* AppDelegate.swift */,
 				620D859D1DEDD3DF0026039B /* ViewController.swift */,
@@ -197,13 +211,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CS810IoT;
 				TargetAttributes = {
 					620D85971DEDD3DF0026039B = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = X6NL4K89LS;
+						DevelopmentTeam = 2MJ4Q6K499;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					620D85AE1DEDD3DF0026039B = {
 						CreatedOnToolsVersion = 8.0;
@@ -348,6 +367,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -398,6 +418,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -427,7 +448,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X6NL4K89LS;
+				CODE_SIGN_ENTITLEMENTS = IoTiOSToDoList/IoTiOSToDoList.entitlements;
+				DEVELOPMENT_TEAM = 2MJ4Q6K499;
 				INFOPLIST_FILE = IoTiOSToDoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CS810.IoTiOSToDoList;
@@ -440,7 +462,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X6NL4K89LS;
+				CODE_SIGN_ENTITLEMENTS = IoTiOSToDoList/IoTiOSToDoList.entitlements;
+				DEVELOPMENT_TEAM = 2MJ4Q6K499;
 				INFOPLIST_FILE = IoTiOSToDoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CS810.IoTiOSToDoList;
