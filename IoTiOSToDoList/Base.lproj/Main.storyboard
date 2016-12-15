@@ -25,9 +25,9 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="To Do List" id="kmE-XR-cxz">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dVI-Bv-aLC">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="dVI-Bv-aLC">
                                             <connections>
-                                                <action selector="addToDoItem:" destination="BYZ-38-t0r" id="gGf-Ev-P3J"/>
+                                                <action selector="refresh:" destination="BYZ-38-t0r" id="pwS-br-CR7"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

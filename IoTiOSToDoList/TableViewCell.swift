@@ -13,12 +13,14 @@ import CloudKit
 protocol TableViewCellDelegate {
     // indicates that the given item has been deleted
     func todoItemDeleted(todoItem: CKRecord)
+    
+    func todoItemCompleted(todoItem: CKRecord)
 }
 
 class TableViewCell: UITableViewCell {
     
     var originalCenter = CGPoint()
-    var deleteOnDragRelease = false
+    var deleteOnDragRelease = false, completeOnDragRelease = false
     var delegate: TableViewCellDelegate?
     
     // The item that this cell renders
@@ -60,19 +62,29 @@ class TableViewCell: UITableViewCell {
             
             // Check if user has dragged far enough to delete the item
             deleteOnDragRelease = frame.origin.x < -frame.size.width / 2.0
+            
+            completeOnDragRelease = frame.origin.x > frame.size.width / 2.0
         }
         
         if recognizer.state == .ended {
             // The frame the cell had before the user dragged it.
             let originalFrame = CGRect(x: 0, y: frame.origin.y, width: bounds.size.width, height: bounds.size.height)
             
-            if !deleteOnDragRelease {
-                // If the item is not being deleted, snap back to the original location.
-                UIView.animate(withDuration: 0.2, animations: {self.frame = originalFrame})
-            } else {
+            if deleteOnDragRelease {
                 if delegate != nil && toDoItem != nil {
                     delegate!.todoItemDeleted(todoItem: toDoItem!)
                 }
+            } else if completeOnDragRelease {
+                if toDoItem != nil {
+                    delegate!.todoItemCompleted(todoItem: toDoItem!)
+                    
+                    UIView.animate(withDuration: 0.2, animations: {self.frame = originalFrame})
+                }
+                
+            } else {
+                // If the item is not being deleted, snap back to the original location.
+                UIView.animate(withDuration: 0.2, animations: {self.frame = originalFrame})
+
             }
         }
     }
