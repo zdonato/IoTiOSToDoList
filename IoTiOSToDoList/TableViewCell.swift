@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import CloudKit
 
 // A protocol that the TableViewCell uses to inform its delegate of state change
 protocol TableViewCellDelegate {
     // indicates that the given item has been deleted
-    func todoItemDeleted(todoItem: ToDoItem)
+    func todoItemDeleted(todoItem: CKRecord)
 }
 
 class TableViewCell: UITableViewCell {
@@ -21,7 +22,7 @@ class TableViewCell: UITableViewCell {
     var delegate: TableViewCellDelegate?
     
     // The item that this cell renders
-    var toDoItem: ToDoItem?
+    var toDoItem: CKRecord?
     
     override func awakeFromNib() {
         super.awakeFromNib()

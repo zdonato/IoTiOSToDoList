@@ -17,7 +17,6 @@
 		620D85A91DEDD3DF0026039B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620D85A71DEDD3DF0026039B /* LaunchScreen.storyboard */; };
 		620D85B41DEDD3DF0026039B /* IoTiOSToDoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D85B31DEDD3DF0026039B /* IoTiOSToDoListTests.swift */; };
 		620D85BF1DEDD3DF0026039B /* IoTiOSToDoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D85BE1DEDD3DF0026039B /* IoTiOSToDoListUITests.swift */; };
-		620D85CD1DEDD60B0026039B /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620D85CC1DEDD60B0026039B /* ToDoItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +54,6 @@
 		620D85BA1DEDD3DF0026039B /* IoTiOSToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoTiOSToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		620D85BE1DEDD3DF0026039B /* IoTiOSToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTiOSToDoListUITests.swift; sourceTree = "<group>"; };
 		620D85C01DEDD3DF0026039B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		620D85CC1DEDD60B0026039B /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoItem.swift; path = ../ToDoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				22F99A0F1E02F45000DE12D7 /* IoTiOSToDoList.entitlements */,
-				620D85CC1DEDD60B0026039B /* ToDoItem.swift */,
 				620D859B1DEDD3DF0026039B /* AppDelegate.swift */,
 				620D859D1DEDD3DF0026039B /* ViewController.swift */,
 				620A90B41DF0CBFF001F89B9 /* TableViewCell.swift */,
@@ -293,7 +290,6 @@
 				620A90B51DF0CBFF001F89B9 /* TableViewCell.swift in Sources */,
 				620D859E1DEDD3DF0026039B /* ViewController.swift in Sources */,
 				620D859C1DEDD3DF0026039B /* AppDelegate.swift in Sources */,
-				620D85CD1DEDD60B0026039B /* ToDoItem.swift in Sources */,
 				620D85A41DEDD3DF0026039B /* IoTiOSToDoList.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
